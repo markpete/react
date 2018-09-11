@@ -117,7 +117,7 @@ export type StaticStyleFunction = (siteVariables?: ISiteVariables) => StaticStyl
 
 export type StaticStyle = StaticStyleRenderable | StaticStyleFunction
 
-export type StaticStyles = OneOrArray<StaticStyle>
+export type StaticStyles = StaticStyle[]
 
 // ========================================================
 // Theme
@@ -148,6 +148,8 @@ export interface IThemePrepared {
   componentStyles: { [key in keyof IThemeComponentStylesPrepared]: IComponentPartStylesPrepared }
   rtl: boolean
   renderer: IRenderer
+  fontFaces: FontFaces
+  staticStyles: StaticStyles
 }
 
 export interface IThemeComponentStylesInput {

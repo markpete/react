@@ -82,12 +82,12 @@ const renderComponent = <P extends {}>(
   return (
     <FelaTheme
       render={({
-        siteVariables = {},
-        componentVariables = {},
-        componentStyles = {},
-        rtl = false,
-        renderer = felaRenderer,
-      }: IThemeInput | IThemePrepared = {}) => {
+        siteVariables,
+        componentVariables,
+        componentStyles,
+        rtl,
+        renderer,
+      }: IThemePrepared) => {
         const ElementType = getElementType({ defaultProps }, props)
 
         // Resolve variables for this component, allow props.variables to override

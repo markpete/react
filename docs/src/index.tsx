@@ -15,18 +15,23 @@ import { mergeThemes } from '../../src/lib'
 const mountNode = document.createElement('div')
 document.body.appendChild(mountNode)
 
+const suiTheme = {
+  // adjust Teams' theme to Semantic UI's font size scheme
+  siteVariables: {
+    htmlFontSize: '14px',
+    bodyFontSize: '1rem',
+  },
+}
+const mergedTheme = mergeThemes(themes.teams, suiTheme)
+
+console.log('themes.teams', themes.teams)
+console.log('suiTheme', suiTheme)
+console.log('mergedTheme', mergedTheme)
+
 const render = NewApp =>
   ReactDOM.render(
     <AppContainer>
-      <Provider
-        theme={mergeThemes(themes.teams, {
-          // adjust Teams' theme to Semantic UI's font size scheme
-          siteVariables: {
-            htmlFontSize: '14px',
-            bodyFontSize: '1rem',
-          },
-        })}
-      >
+      <Provider theme={mergedTheme}>
         <NewApp />
       </Provider>
     </AppContainer>,
